@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net9.0;net10.0</TargetFrameworks>
+    <PackageId>Yort.Hexy</PackageId>
+    <Description>An immutable value type (readonly struct) for hexadecimal byte sequences. Provides value equality, comparison, permissive parsing, rich formatting, and zero-copy Span access — a proper domain type for hex data instead of raw byte[] or string.</Description>
+    <PackageVersion>1.0.0</PackageVersion>
+    <AssemblyName>Yort.Hexy</AssemblyName>
+    <RootNamespace>Yort.Hexy</RootNamespace>
+    <Authors>Troy Willmot</Authors>
+    <Copyright>Copyright (c) Troy Willmot 2025</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageProjectUrl>https://github.com/Yortw/Yort.Hexy</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Yortw/Yort.Hexy.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageTags>hex;hexadecimal;byte-array;binary;parsing;formatting;value-type;struct;immutable;equality;comparison;rfid;nfc;protocol;cryptography;iot</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Yort.Hexy.Tests" />
+  </ItemGroup>
+
+  <!-- .NET Standard 2.0 polyfills -->
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <PackageReference Include="System.Memory" Version="4.5.5" />
+    <PackageReference Include="System.Text.Json" Version="6.0.10" />
+  </ItemGroup>
+
+  <!-- NuGet package content -->
+  <ItemGroup>
+    <None Include="../../README.md" Pack="true" PackagePath="\" />
+    <None Include="../../LICENSE" Pack="true" PackagePath="\" />
+    <None Include="../../icon.png" Pack="true" PackagePath="\" Condition="Exists('../../icon.png')" />
+  </ItemGroup>
+
+</Project>
